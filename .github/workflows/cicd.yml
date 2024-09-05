@@ -13,6 +13,7 @@ jobs:
     - uses: actions/checkout@v4
     - name: Build The Docker Image
       run: docker build . --file DockerFile --tag workflow-test:$(date +%s)
+
   build-and-test:
     runs-on: ubuntu-latest
 
@@ -23,7 +24,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.9'
+        python-version: '3.11'  # Changed Python version to 3.11
 
     - name: Install dependencies
       run: |
